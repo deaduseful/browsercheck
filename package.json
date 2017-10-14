@@ -1,0 +1,41 @@
+{
+  "name": "browsercheck",
+  "version": "1.0.0",
+  "description": "Is my browser up to date?",
+  "main": "server.js",
+  "dependencies": {
+    "async-foreach": "^0.1.3",
+    "asyncawait": "^1.0.6",
+    "co": "^4.6.0",
+    "compare-versions": "^3.1.0",
+    "express": "^4.16.2",
+    "mustache": "^2.3.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "ua-parser": "^0.3.5",
+    "ua-parser-js": "^0.7.17"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "lint": "./node_modules/.bin/eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/deaduseful/browsercheck.git"
+  },
+  "keywords": [
+    "browser",
+    "check"
+  ],
+  "author": "James Wade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deaduseful/browsercheck/issues"
+  },
+  "homepage": "https://github.com/deaduseful/browsercheck#readme"
+}

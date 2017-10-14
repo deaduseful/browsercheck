@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>Is my browser up to date?</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="description" content="Answers the question: Is my browser up to date?">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+{{{ads}}}
+<h1>Is my browser up to date?</h1>
+{{#isSupported}}
+    <div id="content" class="{{isUpToDate}}">
+        {{isUpToDate}}
+    </div>
+    <div id="debug">Detected browser: {{browserName}} v{{browserVersion}}
+        (should be v{{version}} or above)
+    </div>
+{{/isSupported}}
+{{^isSupported}}
+    <div id="content">?</div>
+    <div id="support">Sorry, your browser ({{browserName}}) is not supported, try another: {{browsersList}}.</div>
+{{/isSupported}}
+<div id="update">
+    {{#versionCheck}}
+        Your browser is up-to-date
+    {{/versionCheck}}
+    {{^versionCheck}}
+        {{#isSafari}}
+            <span id="safari"><a href="http://www.apple.com/safari/">Update Apple Safari Now</a></span>
+        {{/isSafari}}
+        {{#isOpera}}
+            <span id="opera"><a href="http://www.opera.com/download/">Update Opera Browser Now</a></span>
+        {{/isOpera}}
+        {{#isIe}}
+            <span id="ie"><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Update Microsoft
+                    Internet Explorer Now</a></span>
+        {{/isIe}}
+        {{#isFirefox}}
+            <span id="firefox"><a href="http://www.mozilla.com/firefox/">Update Mozilla Firefox Now</a></span>
+        {{/isFirefox}}
+        {{#isChrome}}
+            <span id="chrome"><a href="http://www.google.com/chrome">Update Google Chrome Now</a></span>
+        {{/isChrome}}
+        {{#isEdge}}
+            <span id="edge"><a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Update Microsoft Edge
+                    Now</a></span>
+        {{/isEdge}}
+    {{/versionCheck}}
+</div>
+{{{ads}}}
+<div id="footer">
+    <p>&copy; {{dateYear}} <a href="{{baseUrl}}"><strong>dead</strong>useful</a>.</p>
+</div>
+<script>
+    var _gaq = [['_setAccount', '{{uaAccount}}'], ['_trackPageview']];
+    (function (d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s)
+    }(document, 'script'));
+</script>
+</body>
+</html>

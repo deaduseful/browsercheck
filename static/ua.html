@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+    <head>
+        <title>Your UserAgent is...</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <script type="text/javascript">
+            var userAgent = navigator.userAgent.toLowerCase();
+            var browserid = userAgent.match(/(firefox|chrome|safari|opera|msie)/)[1];
+            var browserversion = (userAgent.match(new RegExp('.+(?:version)[\/: ]([\\d.]+)')) || userAgent.match(new RegExp('.+(?:' + browserid + ')[\/: ]([\\d.]+)')) || [0, '0'])[1];
+        </script>
+    </head>
+
+    <body>
+        <p><script type="text/javascript">
+            document.write(userAgent);
+        </script></p>
+        <p>That was detected as:
+        <script type="text/javascript">
+            document.write(browserid);
+        </script></p>        
+    </body>
+</html>
