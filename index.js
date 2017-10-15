@@ -8,7 +8,9 @@ app.use(express.static(path.resolve('./static')));
 
 app.get('/', (req, res, next) => {
   try {
-    const html = check(req);
+    // get user-agent header
+    const userAgent = req.headers['user-agent'];
+    const html = check(userAgent);
     res.send(html);
   } catch (e) {
     next(e);
@@ -16,4 +18,4 @@ app.get('/', (req, res, next) => {
 });
 
 // @see https://claudiajs.com/tutorials/serverless-express.html
-module.exports = app;
+module.exports.app = app;

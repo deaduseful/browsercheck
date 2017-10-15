@@ -12,9 +12,7 @@ const compareVersions = require('compare-versions');
 
 const browsers = Object.keys(versions);
 
-module.exports = function check(req) {
-  // get user-agent header
-  const userAgent = req.headers['user-agent'];
+module.exports = function check(userAgent) {
   const ua = parser.parse(userAgent);
   // write the result as response
   const browserId = ua.family.toLowerCase();
