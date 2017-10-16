@@ -17,5 +17,6 @@ app.get('/', (req, res, next) => {
   }
 });
 
-// @see https://claudiajs.com/tutorials/serverless-express.html
-module.exports.app = app;
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Listening on http://localhost:${(process.env.PORT || 3000)}`);
+});
