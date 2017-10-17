@@ -12,7 +12,7 @@ Mustache.parse(template);
 const values = config;
 values.ads = fs.readFileSync('_ads.html', 'utf-8');
 const browserList = Object.keys(versions);
-values.dateYear = Date.prototype.getYear();
+values.dateYear = (new Date()).getFullYear();
 module.exports = function check(userAgent) {
   const ua = parser.parse(userAgent);
   const browserId = ua.family.toLowerCase();
