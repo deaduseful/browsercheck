@@ -11,12 +11,10 @@ const template = fs.readFileSync(file, 'utf8');
 Mustache.parse(template);
 const values = config;
 values.ads = fs.readFileSync('_ads.html', 'utf-8');
-
 const browserList = Object.keys(versions);
-
+values.dateYear = Date.prototype.getYear();
 module.exports = function check(userAgent) {
   const ua = parser.parse(userAgent);
-  // write the result as response
   const browserId = ua.family.toLowerCase();
   values.browserId = browserId;
   values.browserUrl = versions;
