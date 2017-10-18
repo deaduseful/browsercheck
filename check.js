@@ -22,7 +22,7 @@ module.exports = function check(userAgent) {
   values.browserName = ua.family;
   values.browsersList = browserList.join(', ');
   const isSupported = versions[browserId] !== undefined;
-  values.isUpToDate = 'no';
+  values.isUpToDate = 'unknown';
   if (isSupported) {
     values.isSupported = isSupported;
     values.browserUrl = browsers[browserId].url;

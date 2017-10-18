@@ -17,22 +17,22 @@
     </div>
     <div id="debug">Detected browser: {{browserName}} v{{browserVersion}} (should be v{{version}} or above)
     </div>
+    <div id="update">
+      {{#versionCheck}}
+        Your browser is up-to-date.
+      {{/versionCheck}}
+      {{^versionCheck}}
+      <span id="{{browserId}}"><a href="{{browserUrl}}">Update {{browserName}} Now</a></span>
+      {{/versionCheck}}
+    </div>
   {{/isSupported}}
   {{^isSupported}}
   <div id="content">?</div>
   <div id="support">Sorry, your browser ({{browserName}}) is not supported, try another: {{browsersList}}.</div>
   {{/isSupported}}
-  <div id="update">
-    {{#versionCheck}}
-      Your browser is up-to-date.
-    {{/versionCheck}}
-    {{^versionCheck}}
-    <span id="{{browserId}}"><a href="{{browserUrl}}">Update {{browserName}} Now</a></span>
-    {{/versionCheck}}
-  </div>
   {{{ads}}}
   <div id="footer">
-    <p>&copy; {{dateYear}} <a href="{{baseUrl}}"><strong>dead</strong>useful</a>.</p>
+    <p>&copy; {{dateYear}} <a href="{{authorUrl}}">{{authorName}}</a>.</p>
   </div>
   <script>
     var _gaq = [
