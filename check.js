@@ -21,12 +21,18 @@ module.exports = function check(userAgent) {
   values.browserVersion = ua.toVersionString();
   values.browserName = ua.family;
   values.browsersList = browserList.join(', ');
-  values.browserUrl = browsers[browserId].url;
-  values.isSupported = versions[browserId] !== undefined;
-  values.version = versions[browserId];
-  const versionCheck = compareVersions(values.browserVersion, values.version);
-  values.versionCheck = (versionCheck >= 0);
-  values.isUpToDate = (versionCheck >= 0) ? 'yes' : 'no';
+  const isSupported = versions[browserId] !== undefined;
+  values.isUpToDate = 'no';
+  if (isSupported) {
+    values.isSupported = isSupported;
+    values.browserUrl = browsers[browserId].url;
+    values.version = versions[browserId];
+    const versionCheck = compareVersions(values.browserVersion, values.version);
+    values.versionCheck = (versionCheck >= 0);
+    values.isUpToDate = (versionCheck >= 0) ? 'yes' : 'no';
+  } else {
+    console.log(`Unsupported browser: ${browserId}`);
+  }
   const rendered = Mustache.render(template, values);
   return rendered;
 };

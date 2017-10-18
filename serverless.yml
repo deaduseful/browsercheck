@@ -23,3 +23,13 @@ functions:
           path: /
           method: get
           cors: true
+
+plugins:
+  - serverless-domain-manager
+
+custom:
+  customDomain:
+    domainName: ismybrowseruptodate.com
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true
