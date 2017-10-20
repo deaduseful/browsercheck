@@ -11,6 +11,7 @@ body {
   font-size: 2500%;
   line-height: 120%;
   color: white;
+  background: #ccc;
 }
 
 #content small {
@@ -50,14 +51,10 @@ body {
 }
 
 #footer a {
-  color: #aa0000;
+  color: #4d4d4d;
   font-family: Georgia;
-  font-style: italic;
+  font-style: none;
   text-decoration: none;
-}
-
-#footer a strong {
-  color: #4d4d4d
 }
 
 .buttons {

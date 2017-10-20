@@ -5,6 +5,7 @@ const browsers = require('./browsers.json');
 const config = require('./config.json');
 const parser = require('ua-parser');
 const compareVersions = require('compare-versions');
+const style = require('./static/style.css');
 
 const file = 'index.mustache';
 const template = fs.readFileSync(file, 'utf8');
@@ -33,6 +34,7 @@ module.exports = function check(userAgent) {
   } else {
     console.log(`Unsupported browser: ${browserId}`);
   }
+  values.style = style;
   const rendered = Mustache.render(template, values);
   return rendered;
 };
