@@ -5,9 +5,11 @@ const browsers = require('./browsers.json');
 const config = require('./config.json');
 const parser = require('ua-parser');
 const compareVersions = require('compare-versions');
-const style = require('./static/style.css');
 
 const file = 'index.mustache';
+const styleFile = './static/style.css';
+
+const style = fs.readFileSync(styleFile, 'utf8');
 const template = fs.readFileSync(file, 'utf8');
 Mustache.parse(template);
 const values = config;
